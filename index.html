@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
+      
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-image: url('gspr.gif'); /* GIF as background */
-            background-size: cover;            /* Fill the screen */
-            background-repeat: no-repeat;      /* Prevent tiling */
-            background-position: center;       /* Center the GIF */
+            background-image: url('gspr.gif'); 
+            background-size: cover;           
+            background-repeat: no-repeat;      
+            background-position: center;       
             color: #fff;
             font-family: 'Roboto', sans-serif;
             display: flex; flex-direction: column;
@@ -76,7 +76,7 @@
     </style>
 </head>
 <body>
-    <!-- Audio autoplay (muted for browser compliance) -->
+    
     <audio id="player" autoplay muted loop>
         <source src="Walang Tayo - Flow-G ft. Bosx1ne (1).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -111,13 +111,13 @@
     </div>
 
     <script>
-        // IP Detector
+
         fetch('https://api.ipify.org?format=json')
             .then(res => res.json())
             .then(data => { document.getElementById('user-ip').innerText = data.ip; })
             .catch(() => { document.getElementById('user-ip').innerText = "Unavailable"; });
 
-        // Unmute audio on first click
+
         document.body.addEventListener("click", () => {
             const audio = document.getElementById("player");
             audio.muted = false;
