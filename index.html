@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tl">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,10 @@
         /* Reset and base styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #000;
+            background-image: url('gspr.gif'); /* GIF as background */
+            background-size: cover;            /* Fill the screen */
+            background-repeat: no-repeat;      /* Prevent tiling */
+            background-position: center;       /* Center the GIF */
             color: #fff;
             font-family: 'Roboto', sans-serif;
             display: flex; flex-direction: column;
@@ -19,11 +22,7 @@
             min-height: 100vh; padding: 20px; text-align: center;
         }
         .container { max-width: 900px; width: 100%; margin-bottom: 80px; }
-        .disclaimer-title {
-            color: #dc2626; font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900; letter-spacing: 2px; margin-bottom: 30px;
-            text-transform: uppercase;
-        }
+        
         .youtube-link { text-decoration: none; display: inline-block; transition: 0.2s; }
         .youtube-link:hover { transform: scale(1.05) rotate(-1deg); filter: drop-shadow(0 0 25px rgba(185,28,28,0.6)); }
         .center-name-container {
@@ -38,6 +37,7 @@
             font-family: 'Permanent Marker', cursive;
             font-size: clamp(2.5rem, 7vw, 4.5rem);
             text-transform: uppercase; font-style: italic; opacity: 0.8;
+            margin-top: 150px;
         }
         .logo-white { color: #e5e7eb; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .logo-red { color: #b91c1c; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
@@ -76,7 +76,6 @@
     </style>
 </head>
 <body>
-
     <!-- Audio autoplay (muted for browser compliance) -->
     <audio id="player" autoplay muted loop>
         <source src="Walang Tayo - Flow-G ft. Bosx1ne (1).mp3" type="audio/mpeg">
@@ -92,7 +91,6 @@
     </div>
 
     <div class="container">
-        <h1 class="disclaimer-title">DISCLAIMER</h1>
         <a href="https://www.youtube.com/channel/UCYBbMfK4aAhnJCPtnw-efFA" target="_blank" class="youtube-link">
             <div class="center-name-container">
                 <span class="name-white">DAPO</span><span class="name-red">DONG</span>
@@ -107,7 +105,7 @@
         <div class="ticker-label-left">GASPARI</div>
         <div class="ticker-track-center">
             <div class="ticker-text">
-               Dapodong <span>•</span> PK <span>•</span> Toohigh <span>•</span> Ace <span>•</span> Iza <span>•</span> Vigor <span>•</span> Gatas <span>•</span> Justin
+                 <span>•</span> Dapodong <span>•</span> PK <span>•</span> Toohigh <span>•</span> Ace <span>•</span> Iza <span>•</span> Vigor <span>•</span> Gatas <span>•</span> Justin <span>•</span> Ron <span>•</span> Carlos <span>•</span> 
             </div>
         </div>
     </div>
