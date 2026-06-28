@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaspari - Dapodong Official Music Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            min-height: 100vh; padding: 20px; text-align: center;
+        }
+        .container { max-width: 900px; width: 100%; margin-bottom: 80px; }
+        .disclaimer-title {
+            color: #dc2626; font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900; letter-spacing: 2px; margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .youtube-link { text-decoration: none; display: inline-block; transition: 0.2s; }
+        .youtube-link:hover { transform: scale(1.05) rotate(-1deg); filter: drop-shadow(0 0 25px rgba(185,28,28,0.6)); }
+        .center-name-container {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(4rem, 12vw, 8.5rem);
+            text-transform: uppercase; font-style: italic;
+            margin-bottom: 50px;
+        }
+        .name-white { color: #e5e7eb; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); }
+        .name-red { color: #b91c1c; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); }
+        .logo-container {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            text-transform: uppercase; font-style: italic; opacity: 0.8;
+        }
+        .logo-white { color: #e5e7eb; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .logo-red { color: #b91c1c; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .top-right-badges-container {
+            position: fixed; top: 20px; right: 20px; display: flex; gap: 12px; z-index: 10000;
+        }
+        .badge-name {
+            background: rgba(17,17,17,0.85); padding: 10px 20px; border-radius: 6px;
+            border-bottom: 3px solid #facc15; color: #facc15; font-weight: 900;
+            text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .badge-ip {
+            background: rgba(17,17,17,0.85); padding: 10px 20px; border-radius: 6px;
+            border-bottom: 3px solid #dc2626; font-family: 'Share Tech Mono', monospace;
+            color: #a1a1aa; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .badge-ip .label-text { color: #fff; font-weight: 700; }
+        .badge-ip .ip-number { color: #ef4444; font-weight: bold; }
+        .news-ticker-container {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 50px;
+            background: #111; border-top: 3px solid #dc2626;
+            display: flex; align-items: center; overflow: hidden; z-index: 9999;
+        }
+        .ticker-label-left {
+            background: #dc2626; color: #fff; font-weight: 900;
+            padding: 0 25px; display: flex; align-items: center;
+            text-transform: uppercase;
+        }
+        .ticker-track-center { flex-grow: 1; background: #151515; overflow: hidden; }
+        .ticker-text {
+            display: inline-block; white-space: nowrap; padding-left: 100%;
+            animation: newsScroll 20s linear infinite; font-weight: 700;
+        }
+        .ticker-text span { color: #dc2626; margin: 0 25px; font-weight: 900; }
+        @keyframes newsScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+    </style>
+</head>
+<body>
+
+    <!-- Audio autoplay (muted for browser compliance) -->
+    <audio id="player" autoplay muted loop>
+        <source src="Walang Tayo - Flow-G ft. Bosx1ne (1).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="top-right-badges-container">
+        <div class="badge-name">DAPODONG</div>
+        <div class="badge-ip">
+            <span class="label-text">YOUR IP:</span> 
+            <span id="user-ip" class="ip-number">LOADING...</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="disclaimer-title">DISCLAIMER</h1>
+        <a href="https://www.youtube.com/channel/UCYBbMfK4aAhnJCPtnw-efFA" target="_blank" class="youtube-link">
+            <div class="center-name-container">
+                <span class="name-white">DAPO</span><span class="name-red">DONG</span>
+            </div>
+        </a>
+        <div class="logo-container">
+            <span class="logo-white">GAS</span><span class="logo-red">PARI</span>
+        </div>
+    </div>
+
+    <div class="news-ticker-container">
+        <div class="ticker-label-left">GASPARI</div>
+        <div class="ticker-track-center">
+            <div class="ticker-text">
+                PK Toohigh <span>•</span> Ace <span>•</span> Iza <span>•</span> Vigor <span>•</span> Gatas <span>•</span> Justin
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // IP Detector
+        fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => { document.getElementById('user-ip').innerText = data.ip; })
+            .catch(() => { document.getElementById('user-ip').innerText = "Unavailable"; });
+
+        // Unmute audio on first click
+        document.body.addEventListener("click", () => {
+            const audio = document.getElementById("player");
+            audio.muted = false;
+            audio.play();
+        });
+    </script>
+
+</body>
+</html>
